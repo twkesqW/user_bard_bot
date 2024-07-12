@@ -1,12 +1,25 @@
 import configparser
 
+config = configparser.ConfigParser()
+config.read('config.ini')
+print(config["pyrogram"])
 
-def get_api_id():
-    config = configparser.ConfigParser()
-    config.read('config.ini')
-    return config['pyrogram']['api_id']
+def getDataFromConfig(category, variable):
+    return config[category][variable]
 
-def get_api_hash():
-    config = configparser.ConfigParser()
-    config.read('config.ini')
-    return config['pyrogram']['api_hash']
+
+LANG = "uk-UA"
+
+# telegram api for pyrogram
+api_id = getDataFromConfig('pyrogram', 'api_id')
+api_hash = getDataFromConfig("pyrogram", "api_hash")
+
+# urls
+MOVIE_BASE_URL = "https://api.themoviedb.org/3/movie/"
+MONOBANK_URL = "https://api.monobank.ua/personal/"
+IMAGES_URL = "https://api.unsplash.com/search/photos"
+
+# api_keys
+MOVIE_API_KEY = getDataFromConfig("apikeys", "movie_api_key")
+MONOBANK_API_KEY = getDataFromConfig("apikeys", "monobank_api_key")
+IMAGES_API_KEY = getDataFromConfig("apikeys", "images_api_key")
