@@ -7,4 +7,7 @@ from config import api_id, api_hash
 commands = dict(root='commands')
 app = Client("my_account", api_id=api_id, api_hash=api_hash, plugins=commands)
 # --------------------------------------------
-app.run()
+
+
+if __name__ == "__main__":
+    app.run()
