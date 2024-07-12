@@ -16,4 +16,4 @@ async def find(client,message):
     '''
         await message.edit(res)
     except:
-        await message.edit("Error")
+        await message.edit("Error. Check logs")
